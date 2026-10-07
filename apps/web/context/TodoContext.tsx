@@ -1,4 +1,7 @@
+'use client';
+
 import React, { createContext, useState, useContext, useEffect, ReactNode, useCallback } from 'react';
+
 import type { Todo } from '../types';
 
 interface TodoContextType {
@@ -10,7 +13,8 @@ interface TodoContextType {
 
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
-export const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export function TodoProvider({ children }: { children: ReactNode }) {
+
   const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {

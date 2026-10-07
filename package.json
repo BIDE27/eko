@@ -1,32 +1,21 @@
 {
-  "name": "eko.",
+  "name": "eko-monorepo",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@google/genai": "^1.17.0",
-    "canvas-confetti": "^1.9.4",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "firebase-admin": "^13.5.0",
-    "konva": "^10.2.0",
-    "motion": "^12.34.3",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-konva": "^19.2.2"
+    "dev:web": "pnpm --filter @eko/web dev",
+    "build:web": "pnpm --filter @eko/web build",
+    "dev:mobile": "pnpm --filter @eko/mobile start",
+    "build:core": "pnpm --filter @eko/core build",
+    "dev": "pnpm --filter @eko/web dev",
+    "build": "pnpm --filter @eko/web build"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "typescript": "^5.8.2"
   }
 }
+
+

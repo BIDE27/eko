@@ -1,4 +1,7 @@
+'use client';
+
 import React, { createContext, useState, useContext, useEffect, ReactNode, useCallback } from 'react';
+
 import type { FavoriteItem, QuizQuestion, Contest, Match } from '../types';
 
 type FavoriteableItemData = QuizQuestion | Contest | Match;
@@ -12,7 +15,8 @@ interface FavoritesContextType {
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
-export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export function FavoritesProvider({ children }: { children: ReactNode }) {
+
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
 
   useEffect(() => {

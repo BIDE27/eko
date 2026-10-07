@@ -9,9 +9,13 @@ import {
 } from "@google/genai";
 import type { GeneratedQuiz, StructuredExplanation, ApiResponse, VerbConjugations } from "../types";
 
-// FIX: Initialize the GoogleGenAI client according to guidelines.
-// The API key MUST be loaded from environment variables.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+// Initialize the GoogleGenAI client
+const getAiClient = () => {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY || '';
+  return new GoogleGenAI({ apiKey });
+};
+const ai = getAiClient();
+
 
 /**
  * Gets a structured explanation for a quiz question from the Gemini API.

@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #f9fafb; /* gray-50 */
+  --color-bg-secondary: #f3f4f6; /* gray-100 */
+  --color-card-bg: #ffffff; /* white */
+  --color-text-primary: #1f2937; /* gray-800 */
+  --color-text-secondary: #6b7280; /* gray-500 */
+  --color-text-inverted: #ffffff; /* white */
+  --color-border: #e5e7eb; /* gray-200 */
+  --color-accent: #4f46e5; /* indigo-600 */
+  --color-accent-hover: #4338ca; /* indigo-700 */
+  --color-accent-text: #4f46e5; /* indigo-600 */
+  --color-accent-light-bg: #eef2ff; /* indigo-50 */
+  --shadow-color: 220 38 38;
+}
+
+.dark {
+  --color-bg-primary: #111827; /* gray-900 */
+  --color-bg-secondary: #1f2937; /* gray-800 */
+  --color-card-bg: #1f2937; /* gray-800 */
+  --color-text-primary: #f9fafb; /* gray-50 */
+  --color-text-secondary: #9ca3af; /* gray-400 */
+  --color-text-inverted: #111827; /* gray-900 */
+  --color-border: #374151; /* gray-700 */
+  --color-accent: #818cf8; /* indigo-400 */
+  --color-accent-hover: #6366f1; /* indigo-500 */
+  --color-accent-text: #a5b4fc; /* indigo-300 */
+  --color-accent-light-bg: #3730a3; /* indigo-800 */
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 4s linear infinite;
+}
+
+/* Custom styles for range input */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-secondary);
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input[type=range]:hover {
+  background: #d1d5db; /* gray-300 */
+}
+
+.dark input[type=range]:hover {
+  background: #4b5563; /* gray-600 */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-accent);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--color-card-bg);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--color-accent);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--color-card-bg);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
